@@ -1,0 +1,29 @@
+version: '2.4'
+services:
+  proxy:
+    image: envoyproxy/envoy-alpine
+    depends_on:
+      - web
+    ports:
+      - 8080:8080
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+      - ./sharedfile:/home/sharedfile
+    command: /bin/sh -c "cat /dev/null > /home/sharedfile && envoy -c /etc/envoy/envoy.yaml"
+    networks:
+      - back-tie
+
+  web:
+    image: python:3.7.3-alpine3.9
+    volumes:
+      - ./index.html:/home/index.html
+      - ./main.py:/home/main.py
+      - ./sharedfile:/home/sharedfile
+    working_dir: /home
+    command: python3 -u main.py
+    scale: 3
+    networks:
+      - back-tie
+
+networks:
+  back-tie:

@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Http Prematurely Closed Retry Test</title>
+  <title>HTTP Retry Demo</title>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.js"></script>
 </head>
 <body>
-<h3>From hostname: ${HOSTNAME}</h3>
+<h3>Current Server Hostname: ${HOSTNAME}</h3>
 <p class="requid">requid: null</p>
-<button id="btn">send request</button>
+<p><small>-Refresh page to test again-</small></p>
+<button id="btn">Send Request</button>
 
 <script>
 $('#btn').on('click', function () {

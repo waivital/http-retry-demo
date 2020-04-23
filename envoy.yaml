@@ -24,13 +24,13 @@ static_resources:
     lb_policy: ROUND_ROBIN
     hosts:
     - socket_address:
-        address: http-prematurely-closed-retry_web_1
+        address: http-retry-demo_web_1
         port_value: 8080
     - socket_address:
-        address: http-prematurely-closed-retry_web_2
+        address: http-retry-demo_web_2
         port_value: 8080
     - socket_address:
-        address: http-prematurely-closed-retry_web_3
+        address: http-retry-demo_web_3
         port_value: 8080
 
 

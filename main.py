@@ -40,4 +40,5 @@ try:
 except KeyboardInterrupt:
   pass
 
+shared_file.close()
 httpd.server_close()

@@ -1,6 +1,6 @@
 # HTTP Retry Demo
 
-To reproduce the http retry behavior after connection prematurely closed
+To reproduce the HTTP retry behavior after a connection is prematurely closed.
 
 - [简体中文](README_CN.md)
 
@@ -10,7 +10,7 @@ As [rfc2616 section 8.2.4](https://tools.ietf.org/html/rfc2616#section-8.2.4) me
 
 > If an HTTP/1.1 client sends a request which includes a request body, but which does not include an Expect request-header field with the "100-continue" expectation, and if the client is not directly connected to an HTTP/1.1 origin server, and if the client sees the connection close before receiving any status from the server, the client SHOULD retry the request.
 
-If our service runs behind a proxy or a load balancer, and a client's request is close before receiving any data from the service - due to an error or the response time is too long, it will cause the browser to resend this request, and duplicate request may be generated.
+If our service runs behind a proxy or a load balancer, and a client's request is **closed** before receiving any data from the service (due to an error or because the response time is too long), it may cause the browser to resend this request, potentially resulting in duplicate requests.
 
 ## Run it
 
